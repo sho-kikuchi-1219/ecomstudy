@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>JS表</title>
+</head>
+<body>
+
+<table id = "targetTable" border="1" width="200" height="200">
+<tbody>
+  <script>
+  $(function(){
+  for(var i=0 ; i < 4; i++) {
+                      var tr = $('<tr></tr>');
+                      for(var j=0 ; j < 4; j++) {
+                          tr.append($('<td></td>').html(j));}
+                        };
+                      });
+                          </script>
+</tbody>
+  </table>
+  </body>
+</html>
