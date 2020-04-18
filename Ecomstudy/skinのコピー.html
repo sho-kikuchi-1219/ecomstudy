@@ -51,11 +51,15 @@
   let start = document.getElementById("start");
 start.addEventListener('click',() =>{
 let one = document.getElementById('one');
-one.style.backgroundColor = "red";
+one.classList.add("hit");
 });
 
 document.body.appendChild(div);
   let stop = document.getElementById("stop");
+stop.addEventListener('click',() =>{
+  let one = document.getElementById('one');
+  one.classList.remove("hit");
+});
 
 </script>
   </body>
