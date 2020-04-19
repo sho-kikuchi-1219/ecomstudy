@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ルーレット</title>
+  <style type="text/css">
+      body{
+          display: flex;
+          flex-wrap: wrap;
+      }
+      .cell{
+          width: 50px;
+          height: 50px;
+          background-color: skyblue;
+          margin: 5px;
+          text-align: center;
+          line-height: 50px;
+      }
+      .hit{
+          background-color: pink;
+      }
+      
+  </style>  
+</head>
+<body>
+    
+    <script>
+
+       // const num = 16;
+       // for (let i = 1; i <= num; i++){
+       // const div = document.createElement('div');
+       // div.classList.add('cell');
+       // div.textContent = i;
+
+        //div.addEventListener('click',() =>{
+           // div.classList.add('hit');
+
+        //});
+
+       // document.body.appendChild(div);
+    //}
+        //4行のtr要素の作成
+        for (let i = 1; i <= 4; i++){
+                const tr = document.createElement('tr');
+                //各tr要素に入れるtd要素の作成
+                for (let j = 1; j <4; j++){
+                    const td =document.createElement('td');
+                    td.classList.add('cell');
+                    td.textContent = i;
+                    document.body.appendChild(td);
+                    }
+            tr.classList.add('cell');
+            tr.textContent = i;
+            
+            tr.addEventListener('click',() =>{
+                tr.classList.add('hit');
+
+            });
+
+            document.body.appendChild(tr);
+        
+        }
+    </Script>
+    <tr>
+    <input type="button" value="スタート" id="start">
+    <input type="button" value="ストップ" id="stop">
+    <input type="button" value="リセット" id="reset">
+    </tr>
+</body>
+</html>
