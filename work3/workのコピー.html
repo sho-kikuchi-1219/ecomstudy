@@ -24,48 +24,53 @@
   </style>  
 </head>
 <body>
-    
-    <script>
+   <table id = "base">
+    </table>
+</body>
 
-       // const num = 16;
-       // for (let i = 1; i <= num; i++){
-       // const div = document.createElement('div');
-       // div.classList.add('cell');
-       // div.textContent = i;
+        <script>
 
-        //div.addEventListener('click',() =>{
-           // div.classList.add('hit');
+        // const num = 16;
+        // for (let i = 1; i <= num; i++){
+        // const div = document.createElement('div');
+        // div.classList.add('cell');
+        // div.textContent = i;
 
-        //});
+            //div.addEventListener('click',() =>{
+            // div.classList.add('hit');
 
-       // document.body.appendChild(div);
-    //}
-        //4行のtr要素の作成
-        for (let i = 1; i <= 4; i++){
-                const tr = document.createElement('tr');
-                //各tr要素に入れるtd要素の作成
-                for (let j = 1; j <4; j++){
-                    const td =document.createElement('td');
-                    td.classList.add('cell');
-                    td.textContent = i;
-                    document.body.appendChild(td);
-                    }
-            tr.classList.add('cell');
-            tr.textContent = i;
+            //});
+
+        // document.body.appendChild(div);
+        //}
+            //4行のtr要素の作成
+            for (let i = 1; i <= 4; i++){
+                    const tr = document.createElement('tr');
+                    //各tr要素に入れるtd要素の作成
+                    for (let j = 1; j <=4; j++){
+                        const td =document.createElement('td');
+                        td.classList.add('cell');
+                        td.textContent = i;
+                        const base = document.getElementById('base');
+                        document.base.appendChild(td);
+                        }
+                    tr.classList.add('cell');
+                    tr.textContent = i;
+
+                const base = document.getElementById('base');
+                document.base.appendChild(tr);
             
-            tr.addEventListener('click',() =>{
-                tr.classList.add('hit');
+            }
+            let start = document.getElementById("start");
+                    start.addEventListener('click',() =>{
+                        td.classList.add('hit');
 
-            });
-
-            document.body.appendChild(tr);
-        
-        }
-    </Script>
+                    });
+        </Script>
     <tr>
     <input type="button" value="スタート" id="start">
     <input type="button" value="ストップ" id="stop">
     <input type="button" value="リセット" id="reset">
     </tr>
-</body>
+
 </html>
