@@ -20,12 +20,24 @@
       .hit{
           background-color: pink;
       }
+      table.base{
+          counter-reset: number;
+      }
+      table.base th　td{
+          counter-increment: number;
+          content: counter(number);
+      }
       
   </style>  
 </head>
 <body>
-   <table id = "base">
+    <table id = "base">
     </table>
+    <tr>
+        <input type="button" value="スタート" id="start">
+        <input type="button" value="ストップ" id="stop">
+        <input type="button" value="リセット" id="reset">
+    </tr>
 </body>
 
         <script>
@@ -47,18 +59,14 @@
             for (let i = 1; i <= 4; i++){
                     const tr = document.createElement('tr');
                     //各tr要素に入れるtd要素の作成
-                    for (let j = 1; j <=4; j++){
+                    for (let j = 1; j <= 4; j++){
                         const td =document.createElement('td');
                         td.classList.add('cell');
-                        td.textContent = i;
-                        const base = document.getElementById('base');
-                        document.base.appendChild(td);
+                        //td.textContent = i;
+                        tr.appendChild(td);
                         }
-                    tr.classList.add('cell');
-                    tr.textContent = i;
-
                 const base = document.getElementById('base');
-                document.base.appendChild(tr);
+                base.appendChild(tr);
             
             }
             let start = document.getElementById("start");
@@ -67,10 +75,5 @@
 
                     });
         </Script>
-    <tr>
-    <input type="button" value="スタート" id="start">
-    <input type="button" value="ストップ" id="stop">
-    <input type="button" value="リセット" id="reset">
-    </tr>
 
 </html>
