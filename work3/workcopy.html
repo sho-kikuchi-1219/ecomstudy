@@ -62,13 +62,14 @@
                     for (let j = 1; j <= 4; j++){
                         const td =document.createElement('td');
                         td.classList.add('cell');
-                        //td.textContent = i;
+                        for(let v =1;v <= 16; v++){
+                        td.textContent = v;}
                         tr.appendChild(td);
                         }
                 const base = document.getElementById('base');
                 base.appendChild(tr);
-            
             }
+            
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
                         td.classList.add('hit');
