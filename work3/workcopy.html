@@ -56,23 +56,20 @@
         // document.body.appendChild(div);
         //}
             //4行のtr要素の作成
+            let count = 0
             for (let i = 1; i <= 4; i++){
                     const tr = document.createElement('tr');
                     //各tr要素に入れるtd要素の作成
                     for (let j = 1; j <= 4; j++){
                         const td =document.createElement('td');
                         td.classList.add('cell');
-                        //for(let v =1;v <= 16; v++){
-                        //td.textContent = v;}
+                        count++
+                        td.textContent = count;
                         tr.appendChild(td);
                         }
                 const base = document.getElementById('base');
                 base.appendChild(tr);
             }
-            for(let v =1;v <= 16; v++){
-                        const td =document.createElement('td');
-                        td.textContent = v;
-                        }
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
                         td.classList.add('hit');
