@@ -48,8 +48,8 @@
         // div.classList.add('cell');
         // div.textContent = i;
 
-            //div.addEventListener('click',() =>{
-            // div.classList.add('hit');
+            //td.addEventListener('click',() =>{
+             //td.classList.add('hit');
 
             //});
 
@@ -65,6 +65,10 @@
                         td.classList.add('cell');
                         count++
                         td.textContent = count;
+                        td.classList.add(count);
+                        td.addEventListener('click',() =>{
+                        td.classList.add('hit');
+                        });
                         tr.appendChild(td);
                         }
                 const base = document.getElementById('base');
@@ -72,7 +76,8 @@
             }
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
-                        td.classList.add('hit');
+                        let number = document.getElementsByClassName('3');
+                        number.classList.add('hit');
 
                     });
         </Script>
