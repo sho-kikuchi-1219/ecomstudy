@@ -65,10 +65,10 @@
                         td.classList.add('cell');
                         count++
                         td.textContent = count;
-                        td.classList.add(count);
-                        td.addEventListener('click',() =>{
-                        td.classList.add('hit');
-                        });
+                        td.setAttribute("id",count);
+                        //td.addEventListener('click',() =>{
+                        //td.classList.add('hit');
+                        //});
                         tr.appendChild(td);
                         }
                 const base = document.getElementById('base');
@@ -76,9 +76,18 @@
             }
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
-                        let number = document.getElementsByClassName('3');
+                        let number = document.getElementById('3');
                         number.classList.add('hit');
 
+                    });
+            let reset = document.getElementById("reset");
+                    reset.addEventListener('click',() =>{
+                        //td.classList.remove('hit');
+                        //location.reload();
+                        let targetElements = document.getElementsByClassName('hit');
+                        [].forEach.call(targetElements, function(elem) {
+                        elem.classList.remove('hit');
+                        })
                     });
         </Script>
 
