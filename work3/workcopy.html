@@ -82,12 +82,20 @@
                     });
             let reset = document.getElementById("reset");
                     reset.addEventListener('click',() =>{
-                        //td.classList.remove('hit');
                         //location.reload();
-                        let targetElements = document.getElementsByClassName('hit');
-                        [].forEach.call(targetElements, function(elem) {
-                        elem.classList.remove('hit');
-                        })
+                        //let targetElements = document.getElementsByClassName('hit');
+                        //[].forEach.call(targetElements, function(elem) {
+                        //elem.classList.remove('hit');
+                        //})
+                        let removeClassElement = function('hit'){
+                            let elements = document.getElementsByClassName('hit');
+                            for (let i = 0; i < elements.length; i++){
+                                let e = elements[i];
+                                if (e){
+                                    e.parentNode.removeChild(e);
+                                }
+                            }
+                        };
                     });
         </Script>
 
