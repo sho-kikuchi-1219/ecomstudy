@@ -76,7 +76,8 @@
             }
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
-                        let number = document.getElementById('3');
+                        let cellIDnumber = Math.floor(Math.random()*(16 - 1 + 1))+1;
+                        let number = document.getElementById(cellIDnumber);
                         number.classList.add('hit');
 
                     });
@@ -87,15 +88,13 @@
                         //[].forEach.call(targetElements, function(elem) {
                         //elem.classList.remove('hit');
                         //})
-                        let removeClassElement = function('hit'){
-                            let elements = document.getElementsByClassName('hit');
-                            for (let i = 0; i < elements.length; i++){
-                                let e = elements[i];
-                                if (e){
-                                    e.parentNode.removeChild(e);
+                            let hitClassHTML = document.getElementsByClassName('hit');
+                            for (let i = 0; i < hitClassHTML.length; i++){
+                                let hitClass = hitClassHTML[i];
+                                if (hitClass){
+                                    hitClass.classList.remove('hit');
                                 }
                             }
-                        };
                     });
         </Script>
 
