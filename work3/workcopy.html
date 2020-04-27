@@ -76,9 +76,17 @@
             }
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
-                        let cellIDnumber = Math.floor(Math.random()*(16 - 1 + 1))+1;
+                        //配列要素の準備
+                        let allIDnumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+                        //乱数の準備
+                        let randomIDnumber = Math.floor(Math.random()*(allIDnumber.length - 1 + 1));
+                        //配列の乱数番目の要素
+                        let cellIDnumber = allIDnumber[randomIDnumber];
                         let number = document.getElementById(cellIDnumber);
                         number.classList.add('hit');
+                        //選ばれた配列の削除
+                        allIDnumber.splice(randomIDnumber,1);
+                        console.log(allIDnumber);
 
                     });
             let reset = document.getElementById("reset");
