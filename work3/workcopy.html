@@ -96,15 +96,18 @@
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
                         //setInterval(roll,100);
-                        let remclass = allIDnumber[selector - 1];
-                        remclass.classList.remove('hit');
+                        let remclass = document.getElementById("select");
+                        if (remclass){
+                                remclass.classList.remove('hit');
+                                remclass.removeAttribute("id");
+                        }
                         let randomIDnumber = Math.floor(Math.random()*(allIDnumber.length - 1 + 1));
                         //配列の乱数番目の要素
                         let cellIDnumber = allIDnumber[randomIDnumber];
                         let number = document.getElementById(cellIDnumber);
                         number.classList.add('hit');
-                        let selector = number.getAttribute("id");
-                        console.log(selector);
+                        number.setAttribute("id","select");
+                        //let selector = number.getAttribute("id");
                     });
                 //ストップボタンの挙動
             let stop = document.getElementById("stop");
