@@ -92,22 +92,22 @@
                         let number = document.getElementById(cellIDnumber);
                         number.classList.add('hit');
                         }
-               //スタートボタンの挙動         
+               //スタートボタンの挙動 
+               let selector = []      
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
                         //setInterval(roll,100);
-                        let remclass = document.getElementById("select");
+                        let remclass = document.getElementById(selector);
                         if (remclass){
-                                remclass.classList.remove('hit');
-                                remclass.removeAttribute("id");
+                            remclass.classList.remove('hit');
                         }
                         let randomIDnumber = Math.floor(Math.random()*(allIDnumber.length - 1 + 1));
                         //配列の乱数番目の要素
                         let cellIDnumber = allIDnumber[randomIDnumber];
                         let number = document.getElementById(cellIDnumber);
                         number.classList.add('hit');
-                        number.setAttribute("id","select");
-                        //let selector = number.getAttribute("id");
+                        selector = cellIDnumber;
+                        console.log(remclass);
                     });
                 //ストップボタンの挙動
             let stop = document.getElementById("stop");
