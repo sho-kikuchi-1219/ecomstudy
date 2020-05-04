@@ -20,6 +20,9 @@
       .hit{
           background-color: pink;
       }
+      .keep{
+        background-color: pink; 
+      }
       table.base{
           counter-reset: number;
       }
@@ -99,12 +102,14 @@
                 //ストップボタンの挙動
             let stop = document.getElementById("stop");
                     stop.addEventListener('click',() =>{
-                        clearInterval(rollstart);
+                        clearInterval(rollstart);//回転停止
                         //let randomIDnumber = Math.floor(Math.random()*(allIDnumber.length - 1 + 1));
                         //let cellIDnumber = allIDnumber[randomIDnumber];
                         //let number = document.getElementById(cellIDnumber);
                         //number.classList.add('hit');
-                        allIDnumber.splice(selector - 1,1); 
+                        delete allIDnumber [selector - 1]; //選択マスを候補から削除
+                        let number = document.getElementById(selector);//selectorから要素取得
+                        number.classList.add('keep');//クラスkeep付与
                         console.log(allIDnumber);
                     });
                     //リセットボタンの挙動
