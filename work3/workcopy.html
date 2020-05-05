@@ -73,13 +73,15 @@
                         //td.classList.add('hit');
                         //});
                         tr.appendChild(td);
-                        }
-                const base = document.getElementById('base');
-                base.appendChild(tr);
+                    }
+                    const base = document.getElementById('base');
+                    base.appendChild(tr);
             }
             
             //配列要素の準備
             let allIDnumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+            let selector = [] 
+            let deleteIDnumber = []
             //回転処理
             let roll = function(){
                 let remclass = document.getElementById(selector);
@@ -92,9 +94,9 @@
                         let number = document.getElementById(cellIDnumber);
                         number.classList.add('hit');
                         selector = cellIDnumber;
-                        }
-               //スタートボタンの挙動 
-               let selector = []      
+                        deleteIDnumber = allIDnumber.indexOf(cellIDnumber);
+            }
+               //スタートボタンの挙動      
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
                             rollstart = setInterval(roll,1000)
@@ -107,10 +109,11 @@
                         //let cellIDnumber = allIDnumber[randomIDnumber];
                         //let number = document.getElementById(cellIDnumber);
                         //number.classList.add('hit');
-                        delete allIDnumber [selector - 1]; //選択マスを候補から削除
+                        allIDnumber.splice(deleteIDnumber,1); //選択マスを候補から削除
                         let number = document.getElementById(selector);//selectorから要素取得
                         number.classList.add('keep');//クラスkeep付与
                         console.log(allIDnumber);
+                        console.log(deleteIDnumber);
                     });
                     //リセットボタンの挙動
             let reset = document.getElementById("reset");
@@ -120,13 +123,15 @@
                         //[].forEach.call(targetElements, function(elem) {
                         //elem.classList.remove('hit');
                         //})
-                            let hitClassHTML = document.getElementsByClassName('hit');
+                            let hitClassHTML = document.getElementsByClassName('keep');//keepクラスを削除
                             for (let i = 0; i < hitClassHTML.length; i++){
                                 let hitClass = hitClassHTML[i];
                                 if (hitClass){
-                                    hitClass.classList.remove('hit');
+                                    hitClass.classList.remove('keep');
                                 }
                             }
+                            let lastnumber = document.getElementById(selector);
+                            lastnumber.classList.remove('hit');//最後に残ったhitclassを削除
                     });
         </Script>
 
