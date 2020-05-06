@@ -82,6 +82,7 @@
             let allIDnumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
             let selector = [] 
             let deleteIDnumber = []
+            let startbutton = false
             //回転処理
             let roll = function(){
                 let remclass = document.getElementById(selector);
@@ -99,21 +100,23 @@
                //スタートボタンの挙動      
             let start = document.getElementById("start");
                     start.addEventListener('click',() =>{
-                            rollstart = setInterval(roll,1000)
+                            if (startbutton == false){
+                                rollstart = setInterval(roll,100)
+                            }
+                            startbutton = true
                     });
                 //ストップボタンの挙動
             let stop = document.getElementById("stop");
                     stop.addEventListener('click',() =>{
+                        if (startbutton == true){
                         clearInterval(rollstart);//回転停止
-                        //let randomIDnumber = Math.floor(Math.random()*(allIDnumber.length - 1 + 1));
-                        //let cellIDnumber = allIDnumber[randomIDnumber];
-                        //let number = document.getElementById(cellIDnumber);
-                        //number.classList.add('hit');
                         allIDnumber.splice(deleteIDnumber,1); //選択マスを候補から削除
                         let number = document.getElementById(selector);//selectorから要素取得
                         number.classList.add('keep');//クラスkeep付与
                         console.log(allIDnumber);
                         console.log(deleteIDnumber);
+                        }
+                        startbutton = false
                     });
                     //リセットボタンの挙動
             let reset = document.getElementById("reset");
