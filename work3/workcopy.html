@@ -113,8 +113,8 @@
                         allIDnumber.splice(deleteIDnumber,1); //選択マスを候補から削除
                         let number = document.getElementById(selector);//selectorから要素取得
                         number.classList.add('keep');//クラスkeep付与
-                        console.log(allIDnumber);
-                        console.log(deleteIDnumber);
+                        //console.log(allIDnumber);
+                        //console.log(deleteIDnumber);
                         }
                         startbutton = false
                     });
@@ -135,6 +135,8 @@
                             }
                             let lastnumber = document.getElementById(selector);
                             lastnumber.classList.remove('hit');//最後に残ったhitclassを削除
+                            allIDnumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+                            console.log(hitClassHTML);
                     });
         </Script>
 
