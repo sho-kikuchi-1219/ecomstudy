@@ -30,10 +30,6 @@
           counter-increment: number;
           content: counter(number);
       }
-      .allbutton{
-        width: 220px;
-        text-align: center;
-      }
       .box{
           width: 220px;
           margin:0 auto;
@@ -41,36 +37,28 @@
           border:solid 1px #000000;
           background-color: rgb(212, 199, 199);
       }
+      #allbutton{
+          text-align: center;
+      }
+      #allbutton input{
+          font-size: 60px;
+      }
       
   </style>  
 </head>
 <body>
     <div class = "box">
-    <table id = "base" border = "1">
-    </table>
-    <div id = "allbutton" >
-        <input type="button" value="スタート" id="start">
-        <input type="button" value="ストップ" id="stop">
-        <input type="button" value="リセット" id="reset">
-    </div>
+        <table id = "base" border = "1">
+        </table>
+        <div id = "allbutton" >
+            <input type="button" value="スタート" id="start">
+            <input type="button" value="ストップ" id="stop">
+            <input type="button" value="リセット" id="reset">
+        </div>
     </div>
 </body>
 
         <script>
-
-        // const num = 16;
-        // for (let i = 1; i <= num; i++){
-        // const div = document.createElement('div');
-        // div.classList.add('cell');
-        // div.textContent = i;
-
-            //td.addEventListener('click',() =>{
-             //td.classList.add('hit');
-
-            //});
-
-        // document.body.appendChild(div);
-        //}
             //4行のtr要素の作成
             let count = 0
             for (let i = 1; i <= 4; i++){
@@ -82,9 +70,6 @@
                         count++
                         td.textContent = count;
                         td.setAttribute("id",count);
-                        //td.addEventListener('click',() =>{
-                        //td.classList.add('hit');
-                        //});
                         tr.appendChild(td);
                     }
                     const base = document.getElementById('base');
@@ -122,23 +107,18 @@
             let stop = document.getElementById("stop");
                     stop.addEventListener('click',() =>{
                         if (startbutton == true){
-                        clearInterval(rollstart);//回転停止
-                        allIDnumber.splice(deleteIDnumber,1); //選択マスを候補から削除
-                        let number = document.getElementById(selector);//selectorから要素取得
-                        number.classList.add('keep');//クラスkeep付与
-                        //console.log(allIDnumber);
-                        //console.log(deleteIDnumber);
+                            clearInterval(rollstart);//回転停止
+                            allIDnumber.splice(deleteIDnumber,1); //選択マスを候補から削除
+                            let number = document.getElementById(selector);//selectorから要素取得
+                            number.classList.add('keep');//クラスkeep付与
                         }
                         startbutton = false
                     });
                     //リセットボタンの挙動
             let reset = document.getElementById("reset");
                     reset.addEventListener('click',() =>{
-                        //location.reload();
-                        //let targetElements = document.getElementsByClassName('hit');
-                        //[].forEach.call(targetElements, function(elem) {
-                        //elem.classList.remove('hit');
-                        //})
+                            clearInterval(rollstart);
+                            startbutton = false
                             let hitClassHTML = document.getElementsByClassName('keep');//keepクラスを削除
                             let array = Array.prototype.slice.call(hitClassHTML);
                             for (let i = 0; i < array.length; i++){
