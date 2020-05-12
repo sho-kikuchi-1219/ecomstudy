@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
-    <style type = "text/css" src = "workjq.css">
-    
-    </style>
-
+    <link rel = styleseet href = "workjq.css" type = "text/css">
 </head>
 <body>
+    <div class = "box">
+        <table id = "base" border = "2">
+        </table>
+        <div id = "allbutton" >
+            <input type="button" value="スタート" id="start">
+            <input type="button" value="ストップ" id="stop">
+            <input type="button" value="リセット" id="reset">
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        let count = 1
+        for(let i = 1; i <= 4; i++){
+        let a = $('<tr>');
+        for(let j = 1; j <= 4; j++){
+        let b = count++
+        a.append($('<td>').text(b));
+        }
+        $('td').addClass('cell');
+        $('#base').append(a);
+        }
+    </script>
 </body>
     <script type = "text/javascript" src = "workjq.js"></script>
 </html>
