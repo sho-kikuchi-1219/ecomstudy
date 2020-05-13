@@ -4,11 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
-    <link rel = styleseet href = "workjq.css" type = "text/css">
+    <link rel = styleseet href = "workjq.css" >
+    <style type = "text/css">
+    body{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cell{
+        width: 50px;
+        height: 50px;
+        background-color: skyblue;
+        margin: 5px;
+        text-align: center;
+        line-height: 50px;
+    }
+    .hit{
+        background-color: pink;
+    }
+    .keep{
+      background-color: pink; 
+    }
+    table.base{
+        counter-reset: number;
+    }
+    table.base th　td{
+        counter-increment: number;
+        content: counter(number);
+    }
+    .box{
+        width: 220px;
+        margin:0 auto;
+        padding: 5px;
+        border:solid 1px #000000;
+        background-color: rgb(212, 199, 199);
+    }
+    #allbutton{
+        text-align: center;
+    }
+    #allbutton input{
+        font-size: 60px;
+    }
+    </style>
 </head>
 <body>
     <div class = "box">
-        <table id = "base" border = "2">
+        <table id = "base" border = "1">
         </table>
         <div id = "allbutton" >
             <input type="button" value="スタート" id="start">
@@ -18,16 +58,29 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-        let count = 1
+        let count = 0
         for(let i = 1; i <= 4; i++){
-        let a = $('<tr>');
+        let tr = $('<tr>');
         for(let j = 1; j <= 4; j++){
-        let b = count++
-        a.append($('<td>').text(b));
+        count++
+        tr.append($('<td>').text(count));
+        $('td').attr('id',count);
         }
         $('td').addClass('cell');
-        $('#base').append(a);
+        $('#base').append(tr);
         }
+
+      $('#start').click(function(){
+
+      });
+
+      $('#stop').click(function(){
+        
+    });
+
+    $('#reset').click(function(){
+        
+    });
     </script>
 </body>
     <script type = "text/javascript" src = "workjq.js"></script>
