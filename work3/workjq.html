@@ -60,18 +60,26 @@
     <script>
         let count = 0
         for(let i = 1; i <= 4; i++){
-        let tr = $('<tr>');
-        for(let j = 1; j <= 4; j++){
-        count++
-        tr.append($('<td>').text(count));
-        $('td').attr('id',count);
+            const tr = $('<tr>');
+            for(let j = 1; j <= 4; j++){
+                count++
+            tr.append($('<td>').text(count).attr('id',count).addClass('cell'));
+            };
+            $('#base').append(tr);
         }
-        $('td').addClass('cell');
-        $('#base').append(tr);
-        }
+
+    let allIDnumber = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    let selector = [] 
+    let deleteIDnumber = -1
+    let startbutton = false  
+
+    const roll = function(){
+        let randomIDnumber = Math.floor(Math.random()*(allIDnumber.length - 1 + 1));
+        $('#randomIDnumber').addClass('hit');
+    }
 
       $('#start').click(function(){
-
+        roll()
       });
 
       $('#stop').click(function(){
