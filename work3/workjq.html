@@ -83,22 +83,24 @@
     for (let i = 16; i > 0; i--) {
         allIDnumber.push(i)
     }
-    let selector = [] 
-    let deleteIDnumber = -1
+    let selector = -1 
+    let deleteIndexnumber = -1
     let startbutton = false  
 
     const roll = () => {
-        let remclass = $('#' + deleteIDnumber);
+        let remclass = $('#' + selector);
         if (remclass) {
             remclass.removeClass('hit');
         }
         //let randomIDnumber = Math.floor(Math.random()*(allIDnumber.length-1 +1));
         let randomNumberForIndex = Math.floor(Math.random()*(allIDnumber.length -1));
         //[1,2,3,4,5,7,9,11,12,14,15]
-        hitnumber = $('#' + randomNumberForIndex);
-        hitnumber.addClass('hit');
+        //hitnumber = $('#' + randomNumberForIndex);
+        hitnumber = allIDnumber[randomNumberForIndex];
+        number = $('#'+ hitnumber)
+        number.addClass('hit');
         selector = hitnumber;
-        deleteIDnumber = randomNumberForIndex
+        deleteIndexnumber = randomNumberForIndex
     }
 
       $('#start').click(function(){
@@ -111,15 +113,22 @@
       $('#stop').click(function(){
         if (startbutton === true){
             clearInterval(rollstart);
-            allIDnumber.splice(deleteIDnumber,1);
-            $(selector).addClass('keep');
+            allIDnumber.splice(deleteIndexnumber,1);
+            $('#'+selector).addClass('keep');
         }
         startbutton = false
         console.log(allIDnumber);
     });
 
     $('#reset').click(function(){
-        
+       clearInterval(rollstart) ;
+       startbutton = false
+        $('.keep').removeClass('keep');
+        $('.hit').removeClass('hit');
+        allIDnumber = []
+        for (let i = 16; i > 0; i--) {
+        allIDnumber.push(i)
+    }
     });
     </script>
 </body>
